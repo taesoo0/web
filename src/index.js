@@ -1,6 +1,9 @@
 import express from "express"; //node_module 안에 존재하는 express 모듈을 찾아와준다.
+import morgarn from "morgan"; // morgan > middleware를 사용하기 편하기 만든 라이브러리
 
 const app = express(); // express 모듈을 사용하기 위한 규칙.
+
+const logger = morgarn("dev"); //
 
 const port = 3000; //server를 listen하기위한 포트값을 지정해줬다. 포트는 문이라고 생각
 
@@ -13,7 +16,8 @@ const checku = (req, res, next) => {
 };
 
 //middleware 함수 사용
-app.use(checku);
+app.use(checku); // 함수로 직접 구현
+app.use(logger); // 라이브러리 사용
 
 //컨트롤러 브라우저에서 받은 req, res 등을 컨트롤해주는 함수.
 //반드시 res값을 던져주어야 한다. 브라우저는 req를 던지고 res를 기다리고 있으므로, res값을 넘겨주지 않으면 계속 로딩하며 기다린다.
