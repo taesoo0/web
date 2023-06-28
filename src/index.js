@@ -37,3 +37,5 @@ app.get("/login", userLogin);
 
 //서버를 지정해준 포트로 열어주는 함수, 서버가 열리지 않으면 어떤 주소 값도 listen 할 수 없다.
 app.listen(port);
+
+//코드를 우선 작성한뒤에 정리해주는 작업 필요 정리된 파일은 server.js로 만들어줬다.
